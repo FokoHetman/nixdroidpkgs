@@ -2,10 +2,10 @@
   termuxPkg,
   openssh,
   termux-auth,
-  termuxPatchHook,
+  termuxPackageHook,
 }:
 openssh.overrideAttrs (old: {
-  nativeBuildInputs = old.nativeBuildInputs ++ [termuxPatchHook];
+  nativeBuildInputs = old.nativeBuildInputs ++ [termuxPackageHook];
   buildInputs = old.buildInputs ++ [termux-auth];
 
   termuxPatches = [

@@ -27,17 +27,16 @@
     overlays = {
       default = final: prev: {
         termux-auth = final.callPackage ./packages/termux-auth.nix {src = inputs.termux-auth;};
-        termuxPatchHook = final.callPackage ./packages/termuxPatchHook.nix {};
+        termuxPackageHook = final.callPackage ./packages/termuxPackageHook.nix {};
         openssh = final.callPackage ./packages/openssh.nix {
           inherit (prev) openssh;
           termuxPkg = "${inputs.termux-packages}/packages/openssh";
-          inherit (final) termuxPatchHook;
         };
       };
     };
 
     packages = eachSystem (system: {
-      inherit (pkgsFor.${system}) termux-auth termuxPatchHook openssh;
+      inherit (pkgsFor.${system}) termux-auth termuxPackageHook openssh;
     });
   };
 }
