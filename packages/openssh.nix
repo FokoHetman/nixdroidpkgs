@@ -29,8 +29,8 @@ openssh.overrideAttrs (old: {
     "${termuxPkg}/ssh_config.patch"
     "${termuxPkg}/sshd_config.5.patch"
     "${termuxPkg}/sshd_config.patch"
-    # doesn't apply so I'm skipping it xd
-    # "${termuxPkg}/sshd.c.patch"
+    # original doesn't apply so I'm cutting the problematic hunk xd
+    ./sshd.c.patch
     "${termuxPkg}/sshd-session.c.patch"
     "${termuxPkg}/ssh-keygen.c.patch"
     "${termuxPkg}/sshpty.c.patch"
