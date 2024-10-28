@@ -3,14 +3,15 @@
   cmake,
   openssl,
   stdenv,
+  termuxPackageHook,
 }:
 stdenv.mkDerivation {
   pname = "termux-auth";
   version = "git";
   inherit src;
 
-  patches = [./termux-auth.patch];
+  env.CFLAGS = "-DPATH_MAX=256";
 
-  nativeBuildInputs = [cmake];
+  nativeBuildInputs = [cmake termuxPackageHook];
   buildInputs = [openssl];
 }
