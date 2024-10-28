@@ -1,0 +1,16 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index f0eb7e4..22686a6 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,6 +1,11 @@
+ cmake_minimum_required(VERSION 3.5)
+ project(termux-auth VERSION 1.5.0)
+ 
++add_compile_definitions(__ANDROID__)
++add_compile_definitions(TERMUX_HOME="/data/data/com.termux.nix/files/home")
++add_compile_definitions(TERMUX_PATH="/data/data/com.termux.nix/files/usr")
++add_compile_definitions(PATH_MAX=256)
++
+ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
+ include_directories(${PROJECT_SOURCE_DIR})
+ 
