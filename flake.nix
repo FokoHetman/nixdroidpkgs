@@ -27,6 +27,7 @@
     overlays = {
       default = final: prev: {
         termux-auth = final.callPackage ./packages/termux-auth.nix {src = inputs.termux-auth;};
+        termuxPatchHook = final.callPackage ./packages/termuxPatchHook.nix {};
         openssh = final.callPackage ./packages/openssh.nix {
           termuxPkg = "${inputs.termux-packages}/packages/openssh";
         };
