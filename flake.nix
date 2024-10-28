@@ -4,6 +4,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     termux-auth.url = "github:termux/termux-auth";
     termux-auth.flake = false;
+    termux-packages.url = "github:termux/termux-packages";
+    termux-packages.flake = false;
   };
   outputs = {
     self,
@@ -21,14 +23,18 @@
         }
     );
   in {
+    inherit inputs;
     overlays = {
       default = final: prev: {
         termux-auth = final.callPackage ./packages/termux-auth.nix {src = inputs.termux-auth;};
+        openssh = final.callPackage ./packages/openssh.nix {
+          termuxPkg = "${inputs.termux-packages}/packages/openssh";
+        };
       };
     };
 
     packages = eachSystem (system: {
-      inherit (pkgsFor.${system}) termux-auth;
+      inherit (pkgsFor.${system}) termux-auth openssh;
     });
   };
 }

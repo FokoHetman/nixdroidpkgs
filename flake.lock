@@ -1,0 +1,61 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1729880355,
+        "narHash": "sha256-RP+OQ6koQQLX5nw0NmcDrzvGL8HDLnyXt/jHhL1jwjM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "18536bf04cd71abd345f9579158841376fdd0c5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "termux-auth": "termux-auth",
+        "termux-packages": "termux-packages"
+      }
+    },
+    "termux-auth": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1727351185,
+        "narHash": "sha256-GbAzu7PPvFZY9zPZBq9XxmNEsbvA4jwvw79pmQ4vAuw=",
+        "owner": "termux",
+        "repo": "termux-auth",
+        "rev": "0bb85b4faa24f4259cfd217ac1865c1b9c4ffc2a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "termux",
+        "repo": "termux-auth",
+        "type": "github"
+      }
+    },
+    "termux-packages": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1730118209,
+        "narHash": "sha256-NHOyEMSi0Oht/PwwspSZAy8rpDxU4nC6rw/OgULlQ0A=",
+        "owner": "termux",
+        "repo": "termux-packages",
+        "rev": "ad5a441bd5624b88582a2de715b8428d68413db3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "termux",
+        "repo": "termux-packages",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
