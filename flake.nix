@@ -29,13 +29,15 @@
         termux-auth = final.callPackage ./packages/termux-auth.nix {src = inputs.termux-auth;};
         termuxPatchHook = final.callPackage ./packages/termuxPatchHook.nix {};
         openssh = final.callPackage ./packages/openssh.nix {
+          inherit (prev) openssh;
           termuxPkg = "${inputs.termux-packages}/packages/openssh";
+          inherit (final) termuxPatchHook;
         };
       };
     };
 
     packages = eachSystem (system: {
-      inherit (pkgsFor.${system}) termux-auth openssh;
+      inherit (pkgsFor.${system}) termux-auth termuxPatchHook openssh;
     });
   };
 }
