@@ -1,5 +1,5 @@
 {
-  description = "ndroidpkgs";
+  description = "Termux packages and patches ported to nix-on-droid";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     termux-auth.url = "github:termux/termux-auth";
