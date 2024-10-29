@@ -2,6 +2,8 @@
 
 Termux packages/patches ported to nix for use on [nix-on-droid](https://github.com/nix-community/nix-on-droid).
 
+Currently only has termux-auth and OpenSSH.
+
 ## Why?
 
 Most nixpkgs programs work perfectly fine on nix-on-droid. However, some come
