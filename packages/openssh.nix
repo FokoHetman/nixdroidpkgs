@@ -5,6 +5,7 @@
   termuxPackageHook,
 }:
 openssh.overrideAttrs (old: {
+  pname = "openssh-termux";
   nativeBuildInputs = old.nativeBuildInputs ++ [termuxPackageHook];
   buildInputs = old.buildInputs ++ [termux-auth];
 
