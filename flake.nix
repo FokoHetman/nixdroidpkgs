@@ -37,6 +37,17 @@
 
     packages = eachSystem (system: {
       inherit (pkgsFor.${system}) termux-auth termuxPackageHook openssh;
+
+      # TODO: not sure what the convention is with cross compilation
+      crossPkgs = eachSystem (crossSystem: let
+        crossPkgs = import nixpkgs {
+          localSystem = system;
+          inherit crossSystem;
+          overlays = [self.overlays.default];
+        };
+      in {
+        inherit (crossPkgs) termux-auth termuxPackageHook openssh;
+      });
     });
   };
 }
