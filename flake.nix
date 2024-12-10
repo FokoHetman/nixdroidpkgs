@@ -63,6 +63,7 @@
             name = "nixdroidpkgs-ci-test-target";
             src = ./.;
             outputs = ["out"];
+            installPhase = "mkdir -p $out";
             buildInputs = with crossPkgs; [termux-auth openssh];
           }
       );
