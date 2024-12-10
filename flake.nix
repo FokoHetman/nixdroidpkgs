@@ -49,5 +49,21 @@
         inherit (crossPkgs) termux-auth termuxPackageHook openssh;
       });
     });
+
+    ciHelpers = eachSystem (system: {
+      testTargets = eachSystem (
+        crossSystem: let
+          crossPkgs = import nixpkgs {
+            localSystem = system;
+            inherit crossSystem;
+            overlays = [self.overlays.default];
+          };
+        in
+          crossPkgs.stdenvNoCC.mkDerivation {
+            name = "nixdroidpkgs-ci-test-target";
+            buildInputs = with crossPkgs; [termux-auth openssh];
+          }
+      );
+    });
   };
 }
