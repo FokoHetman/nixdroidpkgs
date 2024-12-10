@@ -61,6 +61,8 @@
         in
           crossPkgs.stdenvNoCC.mkDerivation {
             name = "nixdroidpkgs-ci-test-target";
+            src = ./.;
+            outputs = ["out"];
             buildInputs = with crossPkgs; [termux-auth openssh];
           }
       );
