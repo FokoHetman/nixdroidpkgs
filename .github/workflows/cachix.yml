@@ -9,6 +9,9 @@ jobs:
       - uses: cachix/install-nix-action@v26
         with:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
+          extra_nix_config: |
+            extra_substituters = https://nixdroidpkgs.cachix.org
+            extra_trusted_substituters = nixdroidpkgs.cachix.org-1:OvfMz0lrlCe/tS9JO5Ls4lREq+7c6qe+E12yA7Y277Q=
       - uses: cachix/cachix-action@v12
         with:
           name: horriblename
